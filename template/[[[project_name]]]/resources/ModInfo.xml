@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModInfo>
+    <Name value="[[[project_name]]]"/>
+    <Version value="0.1.0"/>
+    <DisplayName value="[[[mod_display_name]]]"/>
+    <Description
+            value="[[[mod_description]]]"/>
+    <Author value="[[[mod_author]]]"/>
+    <Website value="https://github.com/[[[github_owner]]]/[[[repo_name]]]"/>
+</ModInfo>

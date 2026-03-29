@@ -1,0 +1,85 @@
+_subdirectory: template
+_answers_file: .copier-answers.yml
+_min_copier_version: "9.0.0"
+_templates_suffix: ""
+_skip_if_exists:
+  - .github/7dtd-version.env
+  - "*/resources/ModInfo.xml"
+
+_envops:
+  autoescape: false
+  keep_trailing_newline: true
+  block_start_string: "[%"
+  block_end_string: "%]"
+  variable_start_string: "[[["
+  variable_end_string: "]]]"
+
+project_name:
+  type: str
+  help: PascalCase project and namespace name used for the .NET solution and mod folder.
+  default: TimeLoop
+
+repo_name:
+  type: str
+  help: Git repository name for the generated mod.
+  default: "7dtd[[[project_name]]]"
+
+github_owner:
+  type: str
+  help: GitHub owner or organization for repository links.
+  default: Gluck-House
+
+mod_display_name:
+  type: str
+  help: Display name written into ModInfo.xml.
+  default: "[[[project_name]]]"
+
+mod_description:
+  type: str
+  help: Short description used in ModInfo.xml and README.
+  default: A 7 Days to Die mod that pauses day progression unless your configured player conditions are met.
+
+mod_author:
+  type: str
+  help: Author value written into ModInfo.xml.
+  default: Gluck-House
+
+copyright_holder:
+  type: str
+  help: Copyright holder written into the generated MIT license.
+  default: Gluck House
+
+copyright_year:
+  type: str
+  help: Copyright year written into the generated MIT license.
+  default: "2026"
+
+command_prefix_short:
+  type: str
+  help: Short command prefix used by the current TimeLoop-style command set.
+  default: tl
+
+command_prefix_long:
+  type: str
+  help: Long command prefix used by the current TimeLoop-style command set.
+  default: timeloop
+
+config_stem:
+  type: str
+  help: Base filename for the generated config file and example config.
+  default: TimeLooper
+
+config_example_file_name:
+  type: str
+  help: Example config filename committed in the mod resources folder.
+  default: "[[[config_stem]]]_example.xml"
+
+config_root_name:
+  type: str
+  help: XML root element used by the generated config model.
+  default: TimeLoopConfig
+
+log_prefix:
+  type: str
+  help: Log prefix used in server log messages and locale resources.
+  default: "[TimeLoop]"
