@@ -2,11 +2,12 @@
 
 [[[mod_description]]]
 
-This repository was generated from `Gluck-House/7dtd-mod-template` and currently mirrors the same layout, build scripts, and CI conventions used by `7dtd-timeloop`.
+This repository was generated from `Gluck-House/7dtd-mod-template`.
 
 ## Repository layout
 
 - `[[[project_name]]]/`: solution, project file, source code, and packaged mod resources
+- `[[[project_name]]]/src/`: the mod source tree
 - `deps/`: local-only 7 Days to Die assemblies used for compilation
 - `scripts/`: helpers for checking and downloading pinned 7DTD dependencies
 - `.github/7dtd-version.env`: the pinned 7DTD build used by CI
@@ -47,7 +48,7 @@ The local build output is written to `[[[project_name]]]/build/[[[project_name]]
 
 CI pins the expected game dependency set using `.github/7dtd-version.env`.
 
-- `build.yml` restores or downloads the matching dedicated server assemblies, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[command_prefix_long]]]/` folder.
+- `build.yml` restores or downloads the matching dedicated server assemblies, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
 - `update-7dtd-build.yml` checks whether the pinned `BUILD_ID` is stale and opens a PR with the updated version pin when Steam publishes a new build for the configured branch.
 
 To check the current pin manually, run:
@@ -59,9 +60,8 @@ To check the current pin manually, run:
 ## Installation
 
 1. Build the mod locally or download a CI/release artifact.
-2. Copy the `[[[command_prefix_long]]]/` folder into your server `Mods/` directory.
-3. Start the server once so the default config file can be created.
-4. Edit `[[[config_stem]]].xml` inside the mod folder if you need to change defaults.
+2. Copy the `[[[artifact_folder]]]/` folder into your server `Mods/` directory.
+3. Add whatever additional source, resources, and runtime configuration your mod needs.
 
 ## License
 

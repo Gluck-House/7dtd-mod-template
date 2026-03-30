@@ -12,8 +12,8 @@ permissions:
 
 jobs:
   build:
-    uses: Gluck-House/7dtd-mod-infra/.github/workflows/reusable-build.yml@main
+    uses: [[[infra_repo]]]/.github/workflows/reusable-build.yml@[[[infra_ref]]]
     secrets: inherit
     with:
       project_name: "[[[project_name]]]"
-      artifact_folder: "[[[command_prefix_long]]]"
+      artifact_folder: "[[[artifact_folder]]]"

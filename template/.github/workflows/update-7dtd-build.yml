@@ -14,5 +14,5 @@ permissions:
 
 jobs:
   update-7dtd-build:
-    uses: Gluck-House/7dtd-mod-infra/.github/workflows/reusable-update-7dtd-build.yml@main
+    uses: [[[infra_repo]]]/.github/workflows/reusable-update-7dtd-build.yml@[[[infra_ref]]]
     secrets: inherit

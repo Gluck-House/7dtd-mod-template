@@ -18,13 +18,13 @@ This repository is not the place where shared build logic should live long term.
 
 ## Current State
 
-The current template is intentionally aligned to the existing `7dtd-timeloop` repository structure while starting to move shared CI behavior into `7dtd-mod-infra`.
+The template now aims to be generic at the repository level.
 
 That means the generated repository currently includes:
 
 - thin repo-local workflow wrappers that call reusable workflows in `7dtd-mod-infra`
-- the same local scripts used by `7dtd-timeloop`
-- the same broad project layout and build assumptions as the current standalone mod repo
+- repo-local scripts for downloading and checking pinned 7DTD dependencies
+- a minimal C# mod starter rather than a prebuilt gameplay architecture
 
 The next phase is to keep moving more shared automation into `7dtd-mod-infra` while preserving a stable, Copier-managed downstream repo shape.
 
@@ -78,7 +78,7 @@ This repository now contains:
 
 - `copier.yml` for template questions and defaults
 - `template/` for the files copied into each generated mod repository
-- the initial TimeLoop-aligned template contents, with workflow wrappers now pointing at `7dtd-mod-infra`
+- a generic repo scaffold with workflow wrappers pointing at `7dtd-mod-infra`
 
 The generated repositories are expected to separate responsibilities like this:
 
@@ -95,6 +95,7 @@ The generated repositories are expected to separate responsibilities like this:
 - One mod, one repository.
 - Shared shape comes from Copier.
 - Shared CI behavior comes from reusable workflows, not template duplication.
+- The template should stay generic at the mod-source level and avoid imposing one gameplay architecture.
 - The pinned 7DTD version stays in each mod repository so upgrades can be rolled out per mod.
 - Copier bootstraps `.github/7dtd-version.env`, but future `copier update` runs should not overwrite that file.
 - Copier bootstraps `ModInfo.xml`, but future `copier update` runs should not overwrite it, so mod versioning stays repo-owned.
@@ -102,4 +103,4 @@ The generated repositories are expected to separate responsibilities like this:
 
 ## Status
 
-The first working Copier scaffold is now in place. It keeps the current `7dtd-timeloop` repository shape, but shared CI workflow logic is now being extracted into `7dtd-mod-infra` and consumed through thin wrapper workflows.
+The template now provides a generic 7DTD mod repository scaffold with a minimal source starter and shared CI wrappers. Future iterations should continue extracting shared workflow logic into `7dtd-mod-infra` while keeping the generated repo itself lightweight and reusable.

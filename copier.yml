@@ -17,7 +17,7 @@ _envops:
 project_name:
   type: str
   help: PascalCase project and namespace name used for the .NET solution and mod folder.
-  default: TimeLoop
+  default: ExampleMod
 
 repo_name:
   type: str
@@ -37,12 +37,27 @@ mod_display_name:
 mod_description:
   type: str
   help: Short description used in ModInfo.xml and README.
-  default: A 7 Days to Die mod that pauses day progression unless your configured player conditions are met.
+  default: A 7 Days to Die mod.
 
 mod_author:
   type: str
   help: Author value written into ModInfo.xml.
   default: Gluck-House
+
+artifact_folder:
+  type: str
+  help: Top-level folder name included in CI artifacts for drop-in installation under Mods/.
+  default: "[[[project_name]]]"
+
+infra_repo:
+  type: str
+  help: Repository containing the reusable shared GitHub workflows.
+  default: Gluck-House/7dtd-mod-infra
+
+infra_ref:
+  type: str
+  help: Git ref used when calling reusable workflows from the infrastructure repository.
+  default: main
 
 copyright_holder:
   type: str
@@ -53,33 +68,3 @@ copyright_year:
   type: str
   help: Copyright year written into the generated MIT license.
   default: "2026"
-
-command_prefix_short:
-  type: str
-  help: Short command prefix used by the current TimeLoop-style command set.
-  default: tl
-
-command_prefix_long:
-  type: str
-  help: Long command prefix used by the current TimeLoop-style command set.
-  default: timeloop
-
-config_stem:
-  type: str
-  help: Base filename for the generated config file and example config.
-  default: TimeLooper
-
-config_example_file_name:
-  type: str
-  help: Example config filename committed in the mod resources folder.
-  default: "[[[config_stem]]]_example.xml"
-
-config_root_name:
-  type: str
-  help: XML root element used by the generated config model.
-  default: TimeLoopConfig
-
-log_prefix:
-  type: str
-  help: Log prefix used in server log messages and locale resources.
-  default: "[TimeLoop]"
