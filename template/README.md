@@ -9,7 +9,7 @@ This repository was generated from `Gluck-House/7dtd-mod-template`.
 - `[[[project_name]]]/`: solution, project file, source code, and packaged mod resources
 - `[[[project_name]]]/src/`: the mod source tree
 - `deps/`: local-only 7 Days to Die assemblies used for compilation
-- `scripts/`: helpers for checking and downloading pinned 7DTD dependencies
+- `scripts/`: local developer helpers such as downloading pinned 7DTD dependencies
 - `.github/7dtd-version.env`: the pinned 7DTD build used by CI
 - `build.sh`: the standard local build entry point
 
@@ -48,14 +48,8 @@ The local build output is written to `[[[project_name]]]/build/[[[project_name]]
 
 CI pins the expected game dependency set using `.github/7dtd-version.env`.
 
-- `build.yml` restores or downloads the matching dedicated server assemblies, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
-- `update-7dtd-build.yml` checks whether the pinned `BUILD_ID` is stale and opens a PR with the updated version pin when Steam publishes a new build for the configured branch.
-
-To check the current pin manually, run:
-
-```bash
-./scripts/check_7dtd_build.sh
-```
+- `build.yml` downloads the matching shared dependency bundle for the pinned build, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
+- the normal pinned-build update loop runs centrally from `7dtd-mod-infra`, which publishes the matching dependency bundle and opens a PR when `.github/7dtd-version.env` should move forward
 
 ## Installation
 

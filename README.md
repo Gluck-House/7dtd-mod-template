@@ -23,7 +23,7 @@ The template now aims to be generic at the repository level.
 That means the generated repository currently includes:
 
 - thin repo-local workflow wrappers that call reusable workflows in `7dtd-mod-infra`
-- repo-local scripts for downloading and checking pinned 7DTD dependencies
+- a repo-local script for downloading local developer dependencies
 - a minimal C# mod starter rather than a prebuilt gameplay architecture
 
 The next phase is to keep moving more shared automation into `7dtd-mod-infra` while preserving a stable, Copier-managed downstream repo shape.
@@ -50,13 +50,11 @@ The template currently generates a repository with a structure close to this:
 .
 ├── .github/
 │   ├── workflows/
-│   │   ├── build.yml
-│   │   └── update-7dtd-build.yml
+│   │   └── build.yml
 │   └── 7dtd-version.env
 ├── deps/
 │   └── README.md
 ├── scripts/
-│   ├── check_7dtd_build.sh
 │   └── download_7dtd_server.sh
 ├── <ModName>/
 │   ├── <ModName>.csproj
@@ -85,7 +83,7 @@ The generated repositories are expected to separate responsibilities like this:
 - `.github/7dtd-version.env`: the repo-local pin for the target 7DTD build
 - `.github/workflows/`: thin workflow wrappers that call shared reusable workflows
 - `deps/`: local-only game DLL references, not committed to git
-- `scripts/`: local developer helpers for checking the pinned game build and downloading server assemblies
+- `scripts/`: local developer helpers for downloading server assemblies
 - `<ModName>/`: the actual mod project, source code, and packaged resources
 - `build.sh`: the standard local build entry point
 - `<ModName>/resources/ModInfo.xml`: bootstrapped by the template, then owned by the consuming repo
