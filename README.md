@@ -18,15 +18,15 @@ This repository is not the place where shared build logic should live long term.
 
 ## Current State
 
-The current template is intentionally aligned to the existing `7dtd-timeloop` repository rather than the later improved architecture.
+The current template is intentionally aligned to the existing `7dtd-timeloop` repository structure while starting to move shared CI behavior into `7dtd-mod-infra`.
 
 That means the generated repository currently includes:
 
-- repo-local workflows instead of reusable workflow calls
+- thin repo-local workflow wrappers that call reusable workflows in `7dtd-mod-infra`
 - the same local scripts used by `7dtd-timeloop`
 - the same broad project layout and build assumptions as the current standalone mod repo
 
-The plan is to use Copier updates later to migrate generated repositories toward the improved split between template shape and shared infrastructure.
+The next phase is to keep moving more shared automation into `7dtd-mod-infra` while preserving a stable, Copier-managed downstream repo shape.
 
 ## Usage
 
@@ -78,7 +78,7 @@ This repository now contains:
 
 - `copier.yml` for template questions and defaults
 - `template/` for the files copied into each generated mod repository
-- the initial TimeLoop-aligned template contents
+- the initial TimeLoop-aligned template contents, with workflow wrappers now pointing at `7dtd-mod-infra`
 
 The generated repositories are expected to separate responsibilities like this:
 
@@ -102,4 +102,4 @@ The generated repositories are expected to separate responsibilities like this:
 
 ## Status
 
-The first working Copier scaffold is now in place and is designed to reproduce the current `7dtd-timeloop` repository pattern. The next step is validating generated output and then iterating the template toward the improved shared-infrastructure model.
+The first working Copier scaffold is now in place. It keeps the current `7dtd-timeloop` repository shape, but shared CI workflow logic is now being extracted into `7dtd-mod-infra` and consumed through thin wrapper workflows.
