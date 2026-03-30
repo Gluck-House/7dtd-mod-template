@@ -18,12 +18,12 @@ This repository is not the place where shared build logic should live long term.
 
 ## Current State
 
-The current template is intentionally aligned to the existing `7dtdTimeLoop` repository rather than the later improved architecture.
+The current template is intentionally aligned to the existing `7dtd-timeloop` repository rather than the later improved architecture.
 
 That means the generated repository currently includes:
 
 - repo-local workflows instead of reusable workflow calls
-- the same local scripts used by `7dtdTimeLoop`
+- the same local scripts used by `7dtd-timeloop`
 - the same broad project layout and build assumptions as the current standalone mod repo
 
 The plan is to use Copier updates later to migrate generated repositories toward the improved split between template shape and shared infrastructure.
@@ -102,4 +102,4 @@ The generated repositories are expected to separate responsibilities like this:
 
 ## Status
 
-The first working Copier scaffold is now in place and is designed to reproduce the current `7dtdTimeLoop` repository pattern. The next step is validating generated output and then iterating the template toward the improved shared-infrastructure model.
+The first working Copier scaffold is now in place and is designed to reproduce the current `7dtd-timeloop` repository pattern. The next step is validating generated output and then iterating the template toward the improved shared-infrastructure model.

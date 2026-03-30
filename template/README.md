@@ -2,7 +2,7 @@
 
 [[[mod_description]]]
 
-This repository was generated from `Gluck-House/7dtd-mod-template` and currently mirrors the same layout, build scripts, and CI conventions used by `7dtdTimeLoop`.
+This repository was generated from `Gluck-House/7dtd-mod-template` and currently mirrors the same layout, build scripts, and CI conventions used by `7dtd-timeloop`.
 
 ## Repository layout
 
