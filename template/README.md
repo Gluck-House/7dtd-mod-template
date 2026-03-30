@@ -49,6 +49,7 @@ The local build output is written to `[[[project_name]]]/build/[[[project_name]]
 CI pins the expected game dependency set using `.github/7dtd-version.env`.
 
 - `build.yml` downloads the matching shared dependency bundle for the pinned build, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
+- `release.yml` builds the project from the same pinned dependency bundle and attaches a zip containing `[[[artifact_folder]]]/` to the GitHub release.
 - the normal pinned-build update loop runs centrally from `7dtd-mod-infra`, which publishes the matching dependency bundle and opens a PR when `.github/7dtd-version.env` should move forward
 
 ## Installation
