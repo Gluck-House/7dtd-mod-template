@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.1.1...v1.1.2) (2026-04-06)
+
+
+### Maintenance
+
+* preserve repo-owned documentation on update ([4721c6f](https://github.com/Gluck-House/7dtd-mod-template/commit/4721c6f2befe4fb64d1d6775e85842c91a1f58cd))
+
 ## [1.1.1](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.1.0...v1.1.1) (2026-04-06)
 
 
