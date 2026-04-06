@@ -13,9 +13,5 @@ permissions:
 
 jobs:
   release-please:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          config-file: .github/release-please-config.json
-          manifest-file: .github/release-please-manifest.json
+    uses: "Gluck-House/7dtd-mod-infra/.github/workflows/reusable-release-please.yml@main"
+    secrets: inherit
