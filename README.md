@@ -122,7 +122,7 @@ Template releases are managed in this repository with `release-please`.
 - Pull requests into `main` should use Conventional Commit titles because squash merges drive the release notes and version bump.
 - Each merge to `main` updates a long-running release PR for the template.
 - Merging that release PR creates the next `v*` tag and GitHub release for the template repository.
-- Publishing that release also dispatches a promotion workflow in `7dtd-mod-infra`, which opens a PR to move the managed template `ref` forward.
+- The `release-please` workflow dispatches a promotion workflow in `7dtd-mod-infra` when it creates a release, which opens a PR to move the managed template `ref` forward.
 - `7dtd-mod-infra` continues to gate the actual rollout into managed downstream repos through that separate promotion PR.
 - The template repo needs an `INFRA_REPO_TOKEN` secret with permission to dispatch workflows in `Gluck-House/7dtd-mod-infra`.
 
