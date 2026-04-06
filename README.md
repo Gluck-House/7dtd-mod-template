@@ -99,6 +99,8 @@ The generated repositories are expected to separate responsibilities like this:
 - `<ModName>/`: the actual mod project, source code, and packaged resources
 - `build.sh`: the standard local build entry point
 - `CHANGELOG.md`: release notes managed by `release-please`
+- `README.md`: bootstrapped by the template, then owned by the consuming repo
+- `CONTRIBUTING.md`: bootstrapped by the template, then owned by the consuming repo
 - `version.txt`: the repo-local mod version managed by `release-please`
 - `<ModName>/resources/ModInfo.xml`: bootstrapped by the template, then owned by the consuming repo
 
@@ -111,6 +113,7 @@ The generated repositories are expected to separate responsibilities like this:
 - The pinned 7DTD version stays in each mod repository so upgrades can be rolled out per mod.
 - Copier bootstraps `.github/7dtd-version.env`, but future `copier update` runs should not overwrite that file.
 - Copier bootstraps `.github/release-please-manifest.json`, `CHANGELOG.md`, and `version.txt`, but future `copier update` runs should not overwrite them, so mod release history stays repo-owned.
+- Copier bootstraps `README.md` and `CONTRIBUTING.md`, but future `copier update` runs should not overwrite them, so repo-specific documentation stays repo-owned.
 - For existing mod repos that previously used plain numeric tags, the managed update flow seeds `bootstrap-sha` so the first `release-please` run can migrate cleanly to `v` tags without replaying the full history.
 - Copier bootstraps `ModInfo.xml`, but future `copier update` runs should not overwrite it, so mod versioning stays repo-owned.
 - Game DLLs should be downloaded or cached for builds rather than committed into source control unless redistribution has been explicitly cleared.
