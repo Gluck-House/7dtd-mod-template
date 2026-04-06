@@ -4,7 +4,10 @@ _min_copier_version: "9.0.0"
 _templates_suffix: ""
 _skip_if_exists:
   - .github/7dtd-version.env
+  - .github/release-please-manifest.json
   - "*/resources/ModInfo.xml"
+  - CHANGELOG.md
+  - version.txt
 
 _envops:
   autoescape: false

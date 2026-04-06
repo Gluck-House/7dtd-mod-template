@@ -11,7 +11,11 @@ This repository was generated from `Gluck-House/7dtd-mod-template`.
 - `deps/`: local-only 7 Days to Die assemblies used for compilation
 - `scripts/`: local developer helpers such as downloading pinned 7DTD dependencies
 - `.github/7dtd-version.env`: the pinned 7DTD build used by CI
+- `.github/release-please-config.json`: release automation settings for the mod repository
+- `.github/release-please-manifest.json`: the current released mod version tracked by `release-please`
 - `build.sh`: the standard local build entry point
+- `CHANGELOG.md`: managed release notes for the mod repository
+- `version.txt`: the repo-local mod version managed by `release-please`
 
 ## Building
 
@@ -49,8 +53,17 @@ The local build output is written to `[[[project_name]]]/build/[[[project_name]]
 CI pins the expected game dependency set using `.github/7dtd-version.env`.
 
 - `build.yml` downloads the matching shared dependency bundle for the pinned build, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
+- `pr-title.yml` validates pull request titles against Conventional Commit formatting.
+- `release-please.yml` maintains the long-running release PR and creates GitHub releases from merged release PRs.
 - `release.yml` builds the project from the same pinned dependency bundle and attaches a zip containing `[[[artifact_folder]]]/` to the GitHub release.
 - the normal pinned-build update loop runs centrally from `7dtd-mod-infra`, which publishes the matching dependency bundle and opens a PR when `.github/7dtd-version.env` should move forward
+
+## Releases
+
+- Pull request titles should use Conventional Commit formatting because squash merges drive release automation.
+- `release-please` manages `CHANGELOG.md`, `version.txt`, and the mod version in `[[[project_name]]]/resources/ModInfo.xml`.
+- Mod release tags use the `v<version>` format.
+- `chore` entries appear in the generated changelog under `Maintenance`, but they do not trigger a release PR by themselves.
 
 ## Installation
 

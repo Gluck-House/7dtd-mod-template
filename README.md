@@ -49,8 +49,13 @@ The template currently generates a repository with a structure close to this:
 ```text
 .
 ├── .github/
+│   ├── release-please-config.json
+│   ├── release-please-manifest.json
 │   ├── workflows/
-│   │   └── build.yml
+│   │   ├── build.yml
+│   │   ├── pr-title.yml
+│   │   ├── release-please.yml
+│   │   └── release.yml
 │   └── 7dtd-version.env
 ├── deps/
 │   └── README.md
@@ -63,9 +68,11 @@ The template currently generates a repository with a structure close to this:
 │   └── src/
 ├── .gitignore
 ├── build.sh
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-└── README.md
+├── README.md
+└── version.txt
 ```
 
 The exact contents will vary by mod, but the high-level layout should stay consistent across repositories.
@@ -84,11 +91,15 @@ This repository now contains:
 The generated repositories are expected to separate responsibilities like this:
 
 - `.github/7dtd-version.env`: the repo-local pin for the target 7DTD build
+- `.github/release-please-config.json`: release automation rules for the mod repository
+- `.github/release-please-manifest.json`: the current released mod version tracked by `release-please`
 - `.github/workflows/`: thin workflow wrappers that call shared reusable workflows
 - `deps/`: local-only game DLL references, not committed to git
 - `scripts/`: local developer helpers for downloading server assemblies
 - `<ModName>/`: the actual mod project, source code, and packaged resources
 - `build.sh`: the standard local build entry point
+- `CHANGELOG.md`: release notes managed by `release-please`
+- `version.txt`: the repo-local mod version managed by `release-please`
 - `<ModName>/resources/ModInfo.xml`: bootstrapped by the template, then owned by the consuming repo
 
 ## Design Principles
@@ -99,6 +110,8 @@ The generated repositories are expected to separate responsibilities like this:
 - The template should stay generic at the mod-source level and avoid imposing one gameplay architecture.
 - The pinned 7DTD version stays in each mod repository so upgrades can be rolled out per mod.
 - Copier bootstraps `.github/7dtd-version.env`, but future `copier update` runs should not overwrite that file.
+- Copier bootstraps `.github/release-please-manifest.json`, `CHANGELOG.md`, and `version.txt`, but future `copier update` runs should not overwrite them, so mod release history stays repo-owned.
+- For existing mod repos that previously used plain numeric tags, the managed update flow seeds `bootstrap-sha` so the first `release-please` run can migrate cleanly to `v` tags without replaying the full history.
 - Copier bootstraps `ModInfo.xml`, but future `copier update` runs should not overwrite it, so mod versioning stays repo-owned.
 - Game DLLs should be downloaded or cached for builds rather than committed into source control unless redistribution has been explicitly cleared.
 

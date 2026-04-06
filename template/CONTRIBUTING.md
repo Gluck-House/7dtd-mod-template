@@ -24,3 +24,4 @@ STEAMCMD_MODE=docker ./scripts/download_7dtd_server.sh
 
 - Use Conventional Commit PR titles so squash merges produce clean release history.
 - Typical examples: `feat: add reusable workflow wrapper`, `fix: correct dependency bundle path`, `chore(template): refresh Copier scaffold`.
+- PR titles are validated in CI with `pr-title.yml`.
