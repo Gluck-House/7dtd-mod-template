@@ -19,3 +19,8 @@ STEAMCMD_MODE=docker ./scripts/download_7dtd_server.sh
 - Keep changes portable. Avoid absolute filesystem paths and machine-specific assumptions in docs or scripts.
 - The project currently builds with .NET SDK 8 while targeting `netstandard2.1` for the game-facing assembly.
 - This repository was generated from `Gluck-House/7dtd-mod-template`.
+
+## Pull Request Titles
+
+- Use Conventional Commit PR titles so squash merges produce clean release history.
+- Typical examples: `feat: add reusable workflow wrapper`, `fix: correct dependency bundle path`, `chore(template): refresh Copier scaffold`.

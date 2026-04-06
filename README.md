@@ -77,6 +77,9 @@ This repository now contains:
 - `copier.yml` for template questions and defaults
 - `template/` for the files copied into each generated mod repository
 - a generic repo scaffold with workflow wrappers pointing at `7dtd-mod-infra`
+- `.github/workflows/pr-title.yml` to enforce Conventional Commit PR titles
+- `.github/workflows/release-please.yml` to manage template release PRs and tags
+- `.github/release-please-manifest.json` as the template release version source of truth
 
 The generated repositories are expected to separate responsibilities like this:
 
@@ -98,6 +101,15 @@ The generated repositories are expected to separate responsibilities like this:
 - Copier bootstraps `.github/7dtd-version.env`, but future `copier update` runs should not overwrite that file.
 - Copier bootstraps `ModInfo.xml`, but future `copier update` runs should not overwrite it, so mod versioning stays repo-owned.
 - Game DLLs should be downloaded or cached for builds rather than committed into source control unless redistribution has been explicitly cleared.
+
+## Template Releases
+
+Template releases are managed in this repository with `release-please`.
+
+- Pull requests into `main` should use Conventional Commit titles because squash merges drive the release notes and version bump.
+- Each merge to `main` updates a long-running release PR for the template.
+- Merging that release PR creates the next `v*` tag and GitHub release for the template repository.
+- `7dtd-mod-infra` can continue pinning downstream Copier updates to those released template tags.
 
 ## Status
 
