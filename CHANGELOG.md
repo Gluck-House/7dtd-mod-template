@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.1.0...v1.1.1) (2026-04-06)
+
+
+### Bug Fixes
+
+* dispatch template promotion from release workflow ([6a1e3b0](https://github.com/Gluck-House/7dtd-mod-template/commit/6a1e3b0fdb6fc21d2a467f6c91b4da26d1026f3f))
+
 ## [1.1.0](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.0.0...v1.1.0) (2026-04-06)
 
 
