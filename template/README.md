@@ -54,7 +54,7 @@ CI pins the expected game dependency set using `.github/7dtd-version.env`.
 
 - `build.yml` downloads the matching shared dependency bundle for the pinned build, builds the project, and uploads a ready-to-install artifact containing a top-level `[[[artifact_folder]]]/` folder.
 - `pr-title.yml` validates pull request titles against Conventional Commit formatting.
-- `release-please.yml` maintains the long-running release PR and creates GitHub releases from merged release PRs.
+- `release-please.yml` maintains the long-running release PR, creates GitHub releases from merged release PRs, and uploads the packaged release artifact directly after release creation.
 - `release.yml` builds the project from the same pinned dependency bundle and attaches a zip containing `[[[artifact_folder]]]/` to the GitHub release.
 - the normal pinned-build update loop runs centrally from `7dtd-mod-infra`, which publishes the matching dependency bundle and opens a PR when `.github/7dtd-version.env` should move forward
 

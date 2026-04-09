@@ -15,3 +15,13 @@ jobs:
   release-please:
     uses: "[[[infra_repo]]]/.github/workflows/reusable-release-please.yml@[[[infra_ref]]]"
     secrets: inherit
+
+  release-assets:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    uses: "[[[infra_repo]]]/.github/workflows/reusable-release.yml@[[[infra_ref]]]"
+    secrets: inherit
+    with:
+      project_name: "[[[project_name]]]"
+      artifact_folder: "[[[artifact_folder]]]"
+      release_tag: ${{ needs.release-please.outputs.tag_name }}
