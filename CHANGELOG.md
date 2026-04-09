@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.1.2...v1.1.3) (2026-04-09)
+
+
+### Bug Fixes
+
+* upload mod release assets after release creation ([ebd090f](https://github.com/Gluck-House/7dtd-mod-template/commit/ebd090f2e7972b14356d7f6237480c8986c06671))
+
 ## [1.1.2](https://github.com/Gluck-House/7dtd-mod-template/compare/v1.1.1...v1.1.2) (2026-04-06)
 
 
