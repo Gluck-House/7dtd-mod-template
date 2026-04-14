@@ -36,7 +36,8 @@ namespace testmod.Patches
 {
 
     [HarmonyPatch(typeof(EntityVehicle))]   
-    [HarmonyPatch("ApplyAccumulatedDamage")]
+    // [HarmonyPatch("ApplyAccumulatedDamage")]
+    [HarmonyPatch("ApplyDamage")]
     // public class NWtestPatch : IHarmony
     internal static class NWtestPatch
     {
