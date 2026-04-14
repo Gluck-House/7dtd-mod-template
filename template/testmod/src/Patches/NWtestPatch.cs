@@ -35,11 +35,11 @@ using UnityEngine;
 namespace testmod.Patches
 {
 
-    [HarmonyPatch(typeof(EntityVehicle))]   
+    [HarmonyPatch(typeof(EntityVehicle),nameof(EntityVehicle.ApplyDamage))]   
     // [HarmonyPatch("ApplyAccumulatedDamage")]
-    [HarmonyPatch("ApplyDamage")]
+    // [HarmonyPatch("ApplyDamage")]
     // public class NWtestPatch : IHarmony
-    internal static class NWtestPatch
+    class NWtestPatch
     {
         // public void Start()
         // {
@@ -48,8 +48,11 @@ namespace testmod.Patches
         //     // harmony.PatchAll(Assembly.GetExecutingAssembly());
         // }
 
-        static bool Prefix(EntityVehicle __instance)
+        private static bool Prefix(EntityVehicle __instance)
         {
+
+        // static bool Prefix(EntityVehicle __instance)
+        // {
             // if (__instance.damageAccumulator >= 1f)
             // {
             // 	int num = (int)__instance.damageAccumulator;
