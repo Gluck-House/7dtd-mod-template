@@ -1,10 +1,10 @@
-namespace [[[project_name]]]
+namespace testmod
 {
     public class Main : IModApi
     {
         public void InitMod(Mod modInstance)
         {
-            Log.Out("[[[project_name]]] initialized.");
+            Log.Out("testmod initialized.");
         }
     }
 }

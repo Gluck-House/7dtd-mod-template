@@ -235,7 +235,7 @@ run_steamcmd_docker() {
             fi
             cmd+=(+login \"\$STEAM_USER\" \"\$STEAM_PASS\")
         fi
-        cmd+=(+app_update \"$APP_ID\")
+        cmd+=(+app_update \"\$APP_ID\")
         if [[ \"\${VALIDATE:-0}\" == \"1\" ]]; then
             cmd+=(validate)
         fi

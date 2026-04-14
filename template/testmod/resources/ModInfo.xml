@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ModInfo>
-    <Name value="[[[project_name]]]"/>
+    <Name value="testmod"/>
     <Version value="0.1.0"/>
     <DisplayName value="[[[mod_display_name]]]"/>
     <Description
